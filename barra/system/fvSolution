@@ -28,6 +28,10 @@ solvers
 SIMPLE
 {
     nNonOrthogonalCorrectors 2;
+    residualControl
+    {
+        T               1e-5;
+    }
 }
 
 

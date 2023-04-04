@@ -22,9 +22,9 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         3;
+endTime         50;
 
-deltaT          0.005;
+deltaT          0.01;
 
 writeControl    runTime;
 
@@ -44,5 +44,8 @@ timePrecision   6;
 
 runTimeModifiable true;
 
+functions {
+  #includeFunc amostras
+};
 
 // ************************************************************************* //

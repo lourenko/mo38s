@@ -15,27 +15,22 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 273;
+internalField   uniform 0;
 
 boundaryField
 {
-    top //patch1
+    top_bottom //patch1
     {
         type            zeroGradient;
     }
 
-    fixedWalls //patch2
+    laterais //patch2
     {
         type            fixedValue;
         value           uniform 273;
     }
 
-    //patch3
-    //{
-    //    type            zeroGradient;
-    //}
-
-    frontAndBack //patch4
+    square //patch4
     {
         type            fixedValue;
         value           uniform 573;
