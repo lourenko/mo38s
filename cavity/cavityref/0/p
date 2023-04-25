@@ -8,48 +8,31 @@
 FoamFile
 {
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      controlDict;
+    class       volScalarField;
+    object      p;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     icoFoam;
+dimensions      [0 2 -2 0 0 0 0];
 
-startFrom       startTime;
+internalField   uniform 0;
 
-startTime       0;
+boundaryField
+{
+    movingWall
+    {
+        type            zeroGradient;
+    }
 
-stopAt          endTime;
+    fixedWalls
+    {
+        type            zeroGradient;
+    }
 
-endTime         80.0;
-
-deltaT          0.045;
-
-writeControl    timeStep;
-
-writeInterval   10;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-functions {
-
-#includeFunc UemY
-
-#includeFunc VemX
-
+    frontAndBack
+    {
+        type            empty;
+    }
 }
 
 // ************************************************************************* //
