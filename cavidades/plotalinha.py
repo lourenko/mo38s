@@ -33,12 +33,12 @@ tipos = ['-', '--', '-.', ':', 'dashedcondensed']
 
 for ip, pasta in enumerate(pastas):
     # U variando em y
-    arquy = pasteste+f'/{pasta}/uemy'
+    arquy = pasteste+f'/{pasta}/UemY'
     datuy = np.loadtxt(arquy)
     y, u = datuy.T # Colunas transpostas
 
     # V variando em x
-    arqvx = pasteste+f'/{pasta}/vemx'
+    arqvx = pasteste+f'/{pasta}/VemX'
     datvx = np.loadtxt(arqvx)
     x, v = datvx.T
 
