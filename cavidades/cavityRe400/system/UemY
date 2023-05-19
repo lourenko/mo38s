@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+-------------------------------------------------------------------------------
+Descrição
+  Escreve os dados para os pontos especificados ao longo de uma linha, a partir
+    dos pontos inicial e final. Um dado número de pontos é especificado, que
+    serão distribuídos uniformemente sobre a linha.
+\*---------------------------------------------------------------------------*/
+
+enabled true;
+verbose true;
+interpolationScheme cellPoint;
+start           (0.5 0.0 0.05);
+end             (0.5 1.0 0.05);
+nPoints         64;
+
+fields          (Ux);
+
+axis            distance;
+
+#includeEtc "caseDicts/postProcessing/graphs/graphUniform.cfg"
+
+// ************************************************************************* //
