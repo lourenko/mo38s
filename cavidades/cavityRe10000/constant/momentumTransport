@@ -9,52 +9,20 @@ FoamFile
 {
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      controlDict;
+    location    "constant";
+    object      momentumTransport;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     foamRun;
+simulationType  RAS;
 
-solver          incompressibleFluid;
+RAS
+{
+    model           kEpsilon;
 
-startFrom       startTime; // latestTime; //
+    turbulence      on;
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         150;
-
-deltaT          0.009;
-
-writeControl    timeStep;
-
-writeInterval   20;
-
-purgeWrite      200;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable true;
-
-functions {
-
-#includeFunc components(U);
-
-#includeFunc UemY
-
-#includeFunc VemX
-
-#includeFunc sondas
-
+    printCoeffs     on;
 }
+
 // ************************************************************************* //

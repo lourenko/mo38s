@@ -8,44 +8,32 @@
 FoamFile
 {
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      fvSolution;
+    class       volScalarField;
+    location    "0";
+    object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-solvers
+dimensions      [0 2 -3 0 0 0 0];
+
+internalField   uniform 0.00024;
+
+boundaryField
 {
-    p
+    movingWall
     {
-        solver          GAMG;
-        tolerance       1e-06;
-        relTol          0.1;
-        smoother				GaussSeidel;
+        type            epsilonWallFunction;
+        value           uniform 0.00024;
     }
-
-    pFinal
+    fixedWalls
     {
-        $p;
-        tolerance       1e-06;
-        relTol          0;
+        type            epsilonWallFunction;
+        value           uniform 0.00024;
     }
-
-    "(U|k|epsilon|R|nuTilda).*"
+    frontAndBack
     {
-        solver          smoothSolver;
-        smoother        GaussSeidel;
-        tolerance       1e-06;
-        relTol          0;
+        type            empty;
     }
-}
-
-PIMPLE
-{
-    nCorrectors     2;
-    nNonOrthogonalCorrectors 0;
-    pRefCell        0;
-    pRefValue       0;
 }
 
 
